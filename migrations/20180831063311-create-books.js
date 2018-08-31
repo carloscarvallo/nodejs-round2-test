@@ -8,9 +8,11 @@ module.exports = {
       type: Sequelize.INTEGER,
     },
     title: {
+      allowNull: false,
       type: Sequelize.STRING,
     },
     author: {
+      allowNull: false,
       type: Sequelize.STRING,
     },
     content: {
