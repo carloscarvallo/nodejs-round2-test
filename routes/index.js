@@ -16,8 +16,6 @@ const setPayloadError = (res, statusCode, message, developerMessage) => {
 };
 
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
-router.use((error, req, res, next) => {
-  return setPayloadError(res, 500, error.message, 'Something bad happened');
-});
+router.use((error, req, res, next) => setPayloadError(res, 500, error.message, 'Something bad happened'));
 
 module.exports = router;
