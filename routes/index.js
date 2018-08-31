@@ -17,10 +17,7 @@ const setPayloadError = (res, statusCode, message, developerMessage) => {
 
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
 router.use((error, req, res, next) => {
-  const hasNameProperty = Object.prototype.hasOwnProperty.call(error, 'name');
   return setPayloadError(res, 500, error.message, 'Something bad happened');
 });
-
-module.exports = router;
 
 module.exports = router;
