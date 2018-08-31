@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "3ee2a4d1-2e3f-497e-a710-a1510e714578",
+		"name": "Books API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getBooks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3b6d9263-57ac-4e2b-9de8-007e8840a3b6",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response must have a success HTTP Status\", function () {",
+							"     pm.response.to.be.ok; // info, success, redirection, clientError,  serverError, are other variants",
+							"});",
+							"",
+							"pm.test(\"Response must have Body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"});",
+							"",
+							"pm.test(\"Response has a valid JSON body\", function() {",
+							"    pm.response.to.be.json; // this assertion also checks if a body  exists, so the above check is not needed",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/books",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBook",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4653929a-8d9c-4694-b358-81af2ab41f5e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response must have a success HTTP Status\", function () {",
+							"     pm.response.to.be.ok; // info, success, redirection, clientError,  serverError, are other variants",
+							"});",
+							"",
+							"pm.test(\"Response must have Body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"});",
+							"",
+							"pm.test(\"Response has a valid JSON body\", function() {",
+							"    pm.response.to.be.json; // this assertion also checks if a body  exists, so the above check is not needed",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/books/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateBook",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9a8470c2-b9ed-4277-b2e6-b0b1eeb3bdbc",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"HTTP status code is Accepted\", function () {",
+							"    pm.response.to.have.status(\"Accepted\");",
+							"});",
+							"",
+							"pm.test(\"Response must have a body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"});",
+							"",
+							"pm.test(\"Response has a valid JSON body\", function() {",
+							"    pm.response.to.be.json; // this assertion also checks if a body  exists, so the above check is not needed",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Cartero\",\n    \"author\": \"Henry Chinaski\",\n    \"content\": \"Esta hilarante e increíble sátira destinada a convertirse en un clásico...\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/books/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createBooks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "686b6d90-6e14-467a-bfbb-65f90000eb0a",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"HTTP status code is Created\", function () {",
+							"    pm.response.to.have.status(\"Created\");",
+							"});",
+							"",
+							"pm.test(\"Response must have a body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"});",
+							"",
+							"pm.test(\"Response has a valid JSON body\", function() {",
+							"    pm.response.to.be.json; // this assertion also checks if a body  exists, so the above check is not needed",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"otherBooks\",\n    \"author\": \"Other Author\",\n    \"content\": \"Esta hilarante e increíble sátira destinada a convertirse en un clásico...\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/books",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteBook",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6c8d4f71-bd03-472c-b682-209c8bc5ef24",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"HTTP status code is Accepted\", function () {",
+							"    pm.response.to.have.status(\"Accepted\");",
+							"});",
+							"",
+							"pm.test(\"Response must not have a body\", function () {",
+							"    pm.response.to.not.have.jsonBody(\"\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/books/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "unknownResource",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "22efb327-b894-4c71-a73b-6945fc7082cb",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"var codeExpected = 404;",
+							"var reasonExpected = \"Not Found\";",
+							"",
+							"pm.test(\"HTTP reason phrase is \" + reasonExpected, function () {",
+							"    pm.response.to.have.status(reasonExpected);",
+							"});",
+							"",
+							"pm.test(\"Has error property\", function () {",
+							"    pm.response.to.have.jsonBody(\"error\"); ",
+							"});",
+							"",
+							"pm.test(\"Has error message property\", function () {",
+							"    pm.expect(jsonData.error.hasOwnProperty('message'));",
+							"});",
+							"",
+							"pm.test(\"Has error statusCode property\", function () {",
+							"    pm.expect(jsonData.error.hasOwnProperty('statusCode'));",
+							"});",
+							"",
+							"pm.test(\"Payload statusCode is \" + codeExpected, function () {",
+							"    pm.expect(jsonData.error.statusCode).to.equal(codeExpected);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/unknownpath",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"unknownpath"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
